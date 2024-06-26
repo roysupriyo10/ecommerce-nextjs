@@ -1,3 +1,4 @@
+import { socials } from "@/constants";
 import { FC } from "react";
 
 const Footer: FC = () => {
@@ -23,6 +24,44 @@ const Footer: FC = () => {
         "
       >
         <a href="/">Logo</a>
+      </div>
+      <div
+        className="
+          flex
+          flex-col
+          gap-y-4
+        "
+      >
+        <h4
+          className="
+            text-lg
+            font-medium
+            text-gray-500
+          "
+        >
+          Socials
+        </h4>
+        <div
+          className="
+            flex
+            flex-col
+            gap-y-1
+          "
+        >
+          {socials.map(({ url, displayText }) => (
+            <a
+              key={url}
+              className="
+                text-gray-700
+                hover:underline
+              "
+              href={url}
+              target="_blank"
+            >
+              {displayText}
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   );

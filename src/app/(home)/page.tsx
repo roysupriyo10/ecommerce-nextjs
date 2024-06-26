@@ -1,4 +1,10 @@
-import { Exclusive, Hero, NewCollections, NewsLetter, Popular } from "./_components";
+import {
+  Exclusive,
+  Hero,
+  NewCollections,
+  NewsLetter,
+  Popular,
+} from "./_components";
 
 export default function Home() {
   return (

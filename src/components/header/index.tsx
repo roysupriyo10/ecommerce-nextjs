@@ -1,7 +1,9 @@
-import { navbarLinks } from "@/constants/navbarLinks";
 import { FC } from "react";
 import MobileNav from "./Mobile";
+import { navbarLinks } from "@/constants";
 import { ImgCartIcon } from "@/icons";
+import CartButton from "../cart-button";
+import Link from "next/link";
 
 const Header: FC = () => {
   return (
@@ -46,7 +48,7 @@ const Header: FC = () => {
             className="
               flex
               items-center
-              gap-x-4
+              gap-x-8
             "
           >
             {navbarLinks.map(({ displayText, pathname }) => (
@@ -56,6 +58,7 @@ const Header: FC = () => {
                     link-underline
                     link-underline-black
                     py-2
+                    font-semibold
                   "
                 >
                   {displayText}
@@ -70,24 +73,24 @@ const Header: FC = () => {
               gap-x-4
             "
           >
-            <button
-              className="
-                px-10
-                py-2
-                rounded-full
-                border-[1px]
-                border-black/30
-                transition-all
-                duration-300
-                ease-in-out
-                hover:bg-gray-200
-              "
-            >
-              Login
-            </button>
-            <button>
-              <ImgCartIcon fill="black" width={30} height={30} />
-            </button>
+            <a href={"/register"}>
+              <button
+                className="
+                  px-10
+                  py-2
+                  rounded-full
+                  border-[1px]
+                  border-black/30
+                  transition-all
+                  duration-300
+                  ease-in-out
+                  hover:bg-gray-200
+                "
+              >
+                Login
+              </button>
+            </a>
+            <CartButton />
           </div>
         </nav>
         <MobileNav />

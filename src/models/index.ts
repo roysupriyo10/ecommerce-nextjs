@@ -1,3 +1,5 @@
 import Product from "./Product";
+import User from "./User";
+import Cart from "./Cart";
 
-export { Product };
+export { Product, Cart, User };

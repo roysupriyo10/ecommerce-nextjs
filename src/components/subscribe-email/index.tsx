@@ -23,7 +23,7 @@ const SubscribeEmail: FC<SubscribeEmailProps> = ({ className = "" }) => {
       <input
         placeholder="Enter your email here"
         value={email}
-        onChange={event => setEmail(event.target.value)}
+        onChange={(event) => setEmail(event.target.value)}
         className="
           w-full
           border-none

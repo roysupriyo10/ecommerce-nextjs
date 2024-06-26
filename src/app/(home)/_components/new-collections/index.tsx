@@ -40,7 +40,7 @@ const NewCollections: FC = async () => {
         ))}
       </div>
     </section>
-  )
+  );
 };
 
 export default NewCollections;

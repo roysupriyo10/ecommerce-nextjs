@@ -25,3 +25,15 @@ export interface IProduct extends GenericMongooseDocument {
   new_price: number;
   old_price: number;
 }
+
+export interface IUser extends GenericMongooseDocument {
+  name: string;
+  email: string;
+  password: string;
+  cart: Types.ObjectId | ICart;
+}
+
+export interface ICart extends GenericMongooseDocument {
+  associatedUserId: Types.ObjectId | IUser;
+  items: Types.ObjectId[] | IProduct[];
+}

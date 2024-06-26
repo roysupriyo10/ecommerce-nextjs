@@ -1,2 +1,2 @@
 export * from "./getPopularProducts";
-export * from './getNewCollections';
+export * from "./getNewCollections";

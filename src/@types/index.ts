@@ -1,4 +1,9 @@
 export type NavbarLink = {
-  displayText: string;
   pathname: string;
+  displayText: string;
+};
+
+export type SocialLink = {
+  url: string;
+  displayText: string;
 };

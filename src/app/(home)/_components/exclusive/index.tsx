@@ -64,11 +64,9 @@ const Exclusive: FC = () => {
               text-white
             "
           >
-          Check now
+            Check now
           </span>
-          <ImgRightArrowIcon
-            fill="white"
-          />
+          <ImgRightArrowIcon fill="white" />
         </Button>
       </div>
       <div

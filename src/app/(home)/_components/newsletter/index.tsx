@@ -24,7 +24,9 @@ const NewsLetter: FC = () => {
           xl:text-5xl
           font-medium
         "
-      >Get Exclusive Offers On Your Email</h2>
+      >
+        Get Exclusive Offers On Your Email
+      </h2>
       <div
         className="
           w-full
@@ -43,8 +45,7 @@ const NewsLetter: FC = () => {
         />
       </div>
     </section>
-  )
+  );
 };
 
 export default NewsLetter;
-

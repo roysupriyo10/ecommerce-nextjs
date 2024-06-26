@@ -3,6 +3,7 @@
 import { navbarLinks } from "@/constants/navbarLinks";
 import { ImgCartIcon, ImgCloseIcon, ImgHamburgerIcon } from "@/icons";
 import { FC, useState } from "react";
+import CartButton from "../cart-button";
 
 const MobileNav: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -93,9 +94,7 @@ const MobileNav: FC = () => {
           >
             Login
           </button>
-          <button>
-            <ImgCartIcon fill="black" width={30} height={30} />
-          </button>
+          <CartButton />
         </div>
       </div>
     </>
