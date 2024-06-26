@@ -8,11 +8,10 @@ if (!DB_CONNECTION_STRING) {
   );
 }
 
-let cached = global[`mon`];
+let cached = global[`mongoose`];
 
 if (!cached) {
-  //@ts-ignore
-  cached = global.mongooseConnection = { conn: null, promise: null };
+  cached = global.mongoose = { conn: null, promise: null };
 }
 
 export async function connectDatabase() {
@@ -25,8 +24,7 @@ export async function connectDatabase() {
       bufferCommands: false,
     };
     cached.promise = mongoose
-      //@ts-ignore
-      .connect(DB_CONNECTION_STRING, opts)
+      .connect(DB_CONNECTION_STRING as string, opts)
       .then((mongoose) => {
         console.log("connection to db is successful");
 
