@@ -1,9 +1,18 @@
 import { FC } from "react";
 import { getNewCollections } from "@/services";
 import { ProductCard } from "@/components";
+import { IProduct } from "@/@types/model";
 
-const NewCollections: FC = async () => {
-  const products = await getNewCollections();
+type NewCollectionsProps = {
+  category?: IProduct['category'];
+  showHeading?: boolean;
+}
+
+const NewCollections: FC<NewCollectionsProps> = async ({
+  category,
+  showHeading = true
+}) => {
+  const products = await getNewCollections({ category });
   return (
     <section
       className="
@@ -12,6 +21,8 @@ const NewCollections: FC = async () => {
         gap-y-12
       "
     >
+    {
+      showHeading && (
       <h2
         className="
           uppercase
@@ -26,6 +37,8 @@ const NewCollections: FC = async () => {
       >
         NEW COLLECTIONS
       </h2>
+      )
+    }
       <div
         className="
           grid

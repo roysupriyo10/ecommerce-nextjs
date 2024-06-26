@@ -16,6 +16,6 @@ const cartSchema = new Schema<ICart>(
   { timestamps: true },
 );
 
-const Cart = createMongooseModel("Cart", cartSchema);
+const Cart = createMongooseModel<ICart>("Cart", cartSchema);
 
 export default Cart;

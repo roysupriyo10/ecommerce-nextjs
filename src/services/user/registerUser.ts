@@ -1,3 +1,4 @@
+import { IUser } from "@/@types/model";
 import { User } from "@/models";
 import { hashPassword } from "@/utils";
 
@@ -22,5 +23,5 @@ export async function registerUser(params: RegisterUserParams) {
     name: params.name,
   });
 
-  return newUser;
+  return newUser as IUser;
 }

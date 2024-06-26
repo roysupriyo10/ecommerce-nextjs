@@ -4,6 +4,7 @@ import { navbarLinks } from "@/constants/navbarLinks";
 import { ImgCartIcon, ImgCloseIcon, ImgHamburgerIcon } from "@/icons";
 import { FC, useState } from "react";
 import CartButton from "../cart-button";
+import Link from "next/link";
 
 const MobileNav: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -58,7 +59,7 @@ const MobileNav: FC = () => {
         `}
       >
         {navbarLinks.map(({ displayText, pathname }) => (
-          <a key={pathname} href={pathname}>
+          <Link key={pathname} href={pathname}>
             <span
               className="
                 link-underline
@@ -68,7 +69,7 @@ const MobileNav: FC = () => {
             >
               {displayText}
             </span>
-          </a>
+          </Link>
         ))}
         <div
           className="
@@ -79,21 +80,23 @@ const MobileNav: FC = () => {
             justify-between
           "
         >
-          <button
-            className="
-              px-10
-              py-2
-              rounded-full
-              border-[1px]
-              border-black/30
-              transition-all
-              duration-300
-              ease-in-out
-              hover:bg-gray-200
-            "
-          >
-            Login
-          </button>
+          <Link href={"/login"}>
+            <button
+              className="
+                px-10
+                py-2
+                rounded-full
+                border-[1px]
+                border-black/30
+                transition-all
+                duration-300
+                ease-in-out
+                hover:bg-gray-200
+              "
+            >
+              Login
+            </button>
+          </Link>
           <CartButton />
         </div>
       </div>

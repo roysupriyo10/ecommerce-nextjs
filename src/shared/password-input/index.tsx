@@ -1,14 +1,16 @@
 "use client";
 
 import { FormContext } from "@/app/(auth)/_context";
-import { DetailedHTMLProps, FC, InputHTMLAttributes, useContext } from "react";
+import { ImgShowPasswordIcon } from "@/icons";
+import { DetailedHTMLProps, FC, InputHTMLAttributes, useContext, useState } from "react";
 
-type FormInputProps = DetailedHTMLProps<
+type PasswordInputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {
   inputClassName?: string;
-  errorMessage?: string;
+} & {
+  type: "password";
 } & (
     | {
         withLabel?: false | undefined;
@@ -22,12 +24,11 @@ type FormInputProps = DetailedHTMLProps<
       }
   );
 
-const FormInput: FC<FormInputProps> = ({
+const PasswordInput: FC<PasswordInputProps> = ({
   className,
-  type = "text",
+  type = "password",
   withLabel,
   inputClassName,
-  errorMessage,
   labelClassName,
   labelName,
   name,
@@ -38,22 +39,45 @@ const FormInput: FC<FormInputProps> = ({
   }
   const { name: errorName, message } = useContext(FormContext);
 
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const input = (
-    <input
-      type={type}
-      className={`
-        bg-transparent
-        border-bg-black/20
-        outline-none
-        border-b-[1px]
-        py-2
-        placeholder:text-sm
+    <div
+      className="
+        flex
         w-full
-        ${inputClassName}
-      `}
-      name={name}
-      {...rest}
-    />
+        items-center
+        gap-x-4
+      "
+    >
+      <input
+        type={showPassword ? "text" : type}
+        className={`
+          bg-transparent
+          border-bg-black/20
+          outline-none
+          border-b-[1px]
+          py-2
+          placeholder:text-sm
+          w-full
+          ${inputClassName}
+          `}
+        name={name}
+        {...rest}
+      />
+      <button
+        type="button"
+        onClick={() => {
+          setShowPassword(!showPassword);
+        }}
+      >
+        <ImgShowPasswordIcon
+          width={24}
+          height={24}
+          fill="black"
+          slash={showPassword}
+        />
+      </button>
+    </div>
   );
 
   if (withLabel) {
@@ -113,4 +137,4 @@ const FormInput: FC<FormInputProps> = ({
   }
 };
 
-export default FormInput;
+export default PasswordInput;

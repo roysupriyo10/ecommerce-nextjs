@@ -1,9 +1,9 @@
 import { FC } from "react";
 import MobileNav from "./Mobile";
 import { navbarLinks } from "@/constants";
-import { ImgCartIcon } from "@/icons";
 import CartButton from "../cart-button";
 import Link from "next/link";
+import ProfileButton from "../profile-button";
 
 const Header: FC = () => {
   return (
@@ -33,7 +33,7 @@ const Header: FC = () => {
             grow
           "
         >
-          <a href="/">Logo</a>
+          <Link href="/">Logo</Link>
         </div>
         <nav
           className="
@@ -52,7 +52,7 @@ const Header: FC = () => {
             "
           >
             {navbarLinks.map(({ displayText, pathname }) => (
-              <a key={pathname} href={pathname}>
+              <Link key={pathname} href={pathname}>
                 <span
                   className="
                     link-underline
@@ -63,7 +63,7 @@ const Header: FC = () => {
                 >
                   {displayText}
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
           <div
@@ -73,23 +73,7 @@ const Header: FC = () => {
               gap-x-4
             "
           >
-            <a href={"/register"}>
-              <button
-                className="
-                  px-10
-                  py-2
-                  rounded-full
-                  border-[1px]
-                  border-black/30
-                  transition-all
-                  duration-300
-                  ease-in-out
-                  hover:bg-gray-200
-                "
-              >
-                Login
-              </button>
-            </a>
+            <ProfileButton />
             <CartButton />
           </div>
         </nav>

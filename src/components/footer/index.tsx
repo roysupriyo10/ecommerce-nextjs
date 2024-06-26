@@ -1,4 +1,5 @@
 import { socials } from "@/constants";
+import Link from "next/link";
 import { FC } from "react";
 
 const Footer: FC = () => {
@@ -23,13 +24,14 @@ const Footer: FC = () => {
           col-span-3
         "
       >
-        <a href="/">Logo</a>
+        <Link href="/">Logo</Link>
       </div>
       <div
         className="
           flex
           flex-col
           gap-y-4
+          col-span-3
         "
       >
         <h4
@@ -48,18 +50,22 @@ const Footer: FC = () => {
             gap-y-1
           "
         >
-          {socials.map(({ url, displayText }) => (
-            <a
+          {socials.map(({ url, displayText, icon }) => (
+            <Link
               key={url}
               className="
                 text-gray-700
                 hover:underline
+                flex
+                items-center
+                gap-x-1
               "
               href={url}
               target="_blank"
             >
-              {displayText}
-            </a>
+              {icon}
+              <span>{displayText}</span>
+            </Link>
           ))}
         </div>
       </div>

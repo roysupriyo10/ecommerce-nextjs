@@ -25,6 +25,6 @@ const userSchema = new Schema<IUser>(
   { timestamps: true },
 );
 
-const User = createMongooseModel("User", userSchema);
+const User = createMongooseModel<IUser>("User", userSchema);
 
 export default User;

@@ -27,6 +27,6 @@ const productSchema = new Schema<IProduct>(
   { timestamps: true },
 );
 
-const Product = createMongooseModel("Product", productSchema);
+const Product = createMongooseModel<IProduct>("Product", productSchema);
 
 export default Product;
