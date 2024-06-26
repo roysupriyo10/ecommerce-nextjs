@@ -15,6 +15,8 @@ const Hero: FC = () => {
         max-sm:justify-center
         sm:grid
         sm:grid-cols-8
+        min-h-[400px]
+        sm:min-h-[90vh]
         gap-4
       "
     >
@@ -24,7 +26,7 @@ const Hero: FC = () => {
           flex
           max-sm:text-center
           flex-col
-          gap-y-4
+          gap-y-8
           items-start
           max-sm:items-center
           justify-center
@@ -82,18 +84,11 @@ const Hero: FC = () => {
         "
       >
         <Image
-          className="
-            max-w-full
-            max-h-full
-          "
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
           alt="hero image"
+          className="
+            h-full
+            object-cover
+          "
           src={HeroImage}
         />
       </div>

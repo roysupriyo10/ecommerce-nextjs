@@ -7,13 +7,13 @@ export interface GenericMongooseDocument {
 }
 
 export enum ProductCategory {
-  KID = "kid",
+  KIDS = "kids",
   MEN = "men",
   WOMEN = "women",
 }
 
 export const PRODUCT_CATEGORIES: ProductCategory[] = [
-  ProductCategory.KID,
+  ProductCategory.KIDS,
   ProductCategory.MEN,
   ProductCategory.WOMEN,
 ];

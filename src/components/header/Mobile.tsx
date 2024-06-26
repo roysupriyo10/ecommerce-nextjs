@@ -58,7 +58,7 @@ const MobileNav: FC = () => {
       >
         {navbarLinks.map(({ displayText, pathname }) => (
           <a key={pathname} href={pathname}>
-          <span
+            <span
               className="
                 link-underline
                 link-underline-black

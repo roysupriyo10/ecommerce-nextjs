@@ -50,9 +50,7 @@ const Header: FC = () => {
             "
           >
             {navbarLinks.map(({ displayText, pathname }) => (
-              <a
-                key={pathname}
-                href={pathname}>
+              <a key={pathname} href={pathname}>
                 <span
                   className="
                     link-underline

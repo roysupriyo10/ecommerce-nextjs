@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
-import { IProduct, PRODUCT_CATEGORIES } from "../@types/model";
-import { createMongooseModel } from "../utils";
+import { IProduct, PRODUCT_CATEGORIES } from "@/@types/model";
+import { createMongooseModel } from "@/utils";
 
 const productSchema = new Schema<IProduct>(
   {

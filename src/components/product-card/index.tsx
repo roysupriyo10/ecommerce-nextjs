@@ -1,19 +1,25 @@
 import Image from "next/image";
 import { FC } from "react";
-import { IProduct } from "../../@types/model";
+import { IProduct } from "@/@types/model";
+import { FallbackProductImage } from "@/assets";
 
 type ProductCardProps = {
-  imageSrc: string;
   product: IProduct;
 };
 
-const ProductCard: FC<ProductCardProps> = ({ imageSrc }) => {
+const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
     <div
       className="
         flex
         flex-col
         items-start
+        hover:scale-105
+        transition-all
+        ease-in-out
+        duration-200
+        cursor-pointer
+        gap-y-3
       "
     >
       <div
@@ -23,25 +29,54 @@ const ProductCard: FC<ProductCardProps> = ({ imageSrc }) => {
       >
         <Image
           className="
-            max-w-full
-            max-h-full
+            w-full
+            h-full
+            object-cover
           "
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-          alt={``}
-          src={imageSrc}
+          alt={`${product.name} image`}
+          src={product.image || FallbackProductImage}
         />
       </div>
       <div
         className="
           flex-[1]
+          flex
+          flex-col
+          gap-y-1
         "
-      ></div>
+      >
+        <span
+          className="
+            font-light
+          "
+        >
+          {product.name}
+        </span>
+        <div
+          className="
+            flex
+            items-center
+            gap-x-6
+            text-lg
+          "
+        >
+          <span
+            className="
+              font-bold
+            "
+          >
+            ${product.new_price}
+          </span>
+          <span
+            className="
+              line-through
+              text-gray-400
+            "
+          >
+            ${product.old_price}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

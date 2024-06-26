@@ -1,1 +1,2 @@
-export * from './createMongooseModel';
+export * from "./createMongooseModel";
+export * from "./getRandomCategory";

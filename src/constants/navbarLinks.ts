@@ -3,18 +3,18 @@ import { NavbarLink } from "@/@types";
 export const navbarLinks: NavbarLink[] = [
   {
     displayText: "Shop",
-    pathname: "/"
+    pathname: "/",
   },
   {
     displayText: "Men",
-    pathname: "/men"
+    pathname: "/men",
   },
   {
     displayText: "Women",
-    pathname: "/women"
+    pathname: "/women",
   },
   {
     displayText: "Kids",
-    pathname: "/kids"
+    pathname: "/kids",
   },
 ];
