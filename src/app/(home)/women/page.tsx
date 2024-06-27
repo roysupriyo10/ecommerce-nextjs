@@ -10,9 +10,7 @@ export default function Women() {
         gap-y-20
       "
     >
-      <NewCollections category={ProductCategory.WOMEN}
-        showHeading={false}
-      />
+      <NewCollections category={ProductCategory.WOMEN} showHeading={false} />
     </main>
-  )
+  );
 }

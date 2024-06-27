@@ -4,13 +4,13 @@ import { ProductCard } from "@/components";
 import { IProduct } from "@/@types/model";
 
 type NewCollectionsProps = {
-  category?: IProduct['category'];
+  category?: IProduct["category"];
   showHeading?: boolean;
-}
+};
 
 const NewCollections: FC<NewCollectionsProps> = async ({
   category,
-  showHeading = true
+  showHeading = true,
 }) => {
   const products = await getNewCollections({ category });
   return (
@@ -21,10 +21,9 @@ const NewCollections: FC<NewCollectionsProps> = async ({
         gap-y-12
       "
     >
-    {
-      showHeading && (
-      <h2
-        className="
+      {showHeading && (
+        <h2
+          className="
           uppercase
           font-medium
           text-center
@@ -34,11 +33,10 @@ const NewCollections: FC<NewCollectionsProps> = async ({
           lg:text-4xl
           xl:text-5xl
         "
-      >
-        NEW COLLECTIONS
-      </h2>
-      )
-    }
+        >
+          NEW COLLECTIONS
+        </h2>
+      )}
       <div
         className="
           grid

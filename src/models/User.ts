@@ -17,6 +17,9 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: true,
     },
+    profilePicture: {
+      type: String,
+    },
     cart: {
       type: Schema.Types.ObjectId,
       ref: "Cart",

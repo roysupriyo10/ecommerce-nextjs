@@ -30,6 +30,7 @@ export interface IUser extends GenericMongooseDocument {
   name: string;
   email: string;
   password: string;
+  profilePicture: string;
   cart: Types.ObjectId | ICart;
 }
 

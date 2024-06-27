@@ -1,5 +1,6 @@
 export * from "./createMongooseModel";
-export * from './generateJwtToken';
+export * from "./parseFormException";
+export * from "./generateJwtToken";
 export * from "./fromErrorToFormState";
 export * from "./sanitizeFormData";
 export * from "./hashPassword";

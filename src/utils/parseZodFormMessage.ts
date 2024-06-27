@@ -9,6 +9,6 @@ export function parseZodFormMessage(message: string): FormContextType {
 
   return {
     name,
-    message: errorMessage
-  }
+    message: errorMessage,
+  };
 }

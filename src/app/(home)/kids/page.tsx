@@ -10,9 +10,7 @@ export default function Kids() {
         gap-y-20
       "
     >
-      <NewCollections category={ProductCategory.KIDS}
-        showHeading={false}
-      />
+      <NewCollections category={ProductCategory.KIDS} showHeading={false} />
     </main>
-  )
+  );
 }

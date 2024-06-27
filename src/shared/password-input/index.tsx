@@ -2,7 +2,14 @@
 
 import { FormContext } from "@/app/(auth)/_context";
 import { ImgShowPasswordIcon } from "@/icons";
-import { DetailedHTMLProps, FC, InputHTMLAttributes, useContext, useState } from "react";
+import { FormException } from "@/utils/classes";
+import {
+  DetailedHTMLProps,
+  FC,
+  InputHTMLAttributes,
+  useContext,
+  useState,
+} from "react";
 
 type PasswordInputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
@@ -35,8 +42,13 @@ const PasswordInput: FC<PasswordInputProps> = ({
   ...rest
 }) => {
   if (FormContext === undefined) {
-    throw new Error("FormContext is undefined");
+    throw new FormException({
+      name: "form",
+      message: "FormContext is undefined",
+      statusCode: 500,
+    });
   }
+
   const { name: errorName, message } = useContext(FormContext);
 
   const [showPassword, setShowPassword] = useState<boolean>(false);

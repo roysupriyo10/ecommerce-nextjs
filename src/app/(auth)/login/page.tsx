@@ -1,8 +1,6 @@
-
-import { FormInput } from "@/shared";
 import { BackButton } from "../_components";
 import Link from "next/link";
-import { FormSubmitButton } from "@/components";
+import { LoginForm } from "./_components";
 
 export const metadata = {
   title: "Login | Ecommerce Platform",
@@ -11,7 +9,7 @@ export const metadata = {
 
 export default function Login() {
   return (
-    <form
+    <main
       className="
         min-w-[90vh]
         sm:min-w-[500px]
@@ -38,62 +36,7 @@ export default function Login() {
           <Link href="/">Logo</Link>
         </div>
       </div>
-      <div
-        className="
-          flex
-          flex-col
-          gap-y-8
-        "
-      >
-        <FormInput
-          name="email"
-          type="email"
-          placeholder="Enter your email here"
-          withLabel
-          labelName="Email"
-        />
-        <FormInput
-          name="password"
-          type="password"
-          placeholder="Enter your password here"
-          withLabel
-          labelName="Password"
-        />
-      </div>
-      <div
-        className="
-          flex
-          items-center
-          justify-center
-          w-full
-          gap-x-4
-        "
-      >
-        <FormSubmitButton
-          className="
-            bg-black
-            text-white
-            hover:bg-black/90
-            py-2.5
-            px-6
-            transition
-          "
-          fallback={
-            "Please wait..."
-          }
-        >
-        Log In
-        </FormSubmitButton>
-        <Link
-          className="
-            text-center
-            hover:underline
-          "
-          href={"/register"}
-        >
-          New here? Register
-        </Link>
-      </div>
-    </form>
+      <LoginForm />
+    </main>
   );
 }

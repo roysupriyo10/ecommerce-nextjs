@@ -1,14 +1,17 @@
+import { getUser } from "@/auth";
 import { Cart } from "@/models";
-import { Types } from "mongoose";
+import { ICart } from "@/@types/model";
 
-type GetCartDetailsParams = {
-  userId: string | Types.ObjectId;
-};
+export async function getCartDetails() {
+  const user = await getUser();
 
-export async function getCartDetails(params: GetCartDetailsParams) {
+  if (!user) {
+    return null;
+  }
+
   const cart = await Cart.findOne({
-    associatedUserId: params.userId,
+    associatedUserId: user._id,
   });
 
-  return cart;
+  return cart as ICart;
 }

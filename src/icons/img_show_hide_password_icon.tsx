@@ -59,4 +59,3 @@ export const ImgShowPasswordIcon: FC<ImgShowPasswordIconProps> = ({
     </svg>
   );
 };
-

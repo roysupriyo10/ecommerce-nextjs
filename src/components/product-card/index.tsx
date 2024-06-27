@@ -14,7 +14,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         flex
         flex-col
         items-start
-        hover:scale-105
+        hover:scale-[102%]
         transition-all
         ease-in-out
         duration-200

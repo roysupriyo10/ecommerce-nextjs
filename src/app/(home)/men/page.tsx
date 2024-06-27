@@ -4,10 +4,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Men | Ecommerce Platform",
-  description: "Best Shop Ever"
-}
+  description: "Best Shop Ever",
+};
 
-export default function Men() {
+export default function Men({ searchParams }) {
   return (
     <main
       className="
@@ -16,9 +16,7 @@ export default function Men() {
         gap-y-20
       "
     >
-      <NewCollections category={ProductCategory.MEN}
-        showHeading={false}
-      />
+      <NewCollections category={ProductCategory.MEN} showHeading={false} />
     </main>
   );
 }

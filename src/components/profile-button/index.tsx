@@ -1,11 +1,17 @@
+"use server";
+
+import { getUser } from "@/auth";
 import Link from "next/link";
 import { FC } from "react";
+import Profile from "./Profile";
 
-const ProfileButton: FC = () => {
-  const token = process.env.JWT_SECRET_TOKEN;
-  // const cookieStore = cookies
-  return (
-    <Link href={"/register"}>
+const ProfileButton: FC = async () => {
+  const user = await getUser();
+
+  return user ? (
+    <Profile user={user} />
+  ) : (
+    <Link href={"/login"}>
       <button
         className="
           px-10
@@ -19,7 +25,6 @@ const ProfileButton: FC = () => {
           hover:bg-gray-200
         "
       >
-        {process.env.NODE_ENV}
         Login
       </button>
     </Link>

@@ -1,9 +1,8 @@
-// import { ResponseCookie, ResponseCookies } from "next/dist/compiled/@edge-runtime/cookies";
-//
-// export const cookieConfig = {
-//   path: "/",
-//   secure: config.isDevelopment ? false : true,
-//   sameSite: config.isDevelopment ? "lax" : "none",
-//   httpOnly: true,
-// };
-//
+export const cookieConfig: {} = {
+  // path: "/",
+  secure: process.env.NODE_ENV === "development" ? false : true,
+  sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
+  httpOnly: true,
+};
+
+export const USER_ACCESS_TOKEN_COOKIE = "user_access_token";

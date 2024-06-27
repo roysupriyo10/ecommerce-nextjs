@@ -1,17 +1,17 @@
 "use client";
 
-import { registerUserFormAction } from "@/app/(auth)/_actions";
+import { FormContextType } from "@/@types";
+import { FormContext } from "@/app/(auth)/_context";
+import { loginUserFormAction } from "@/app/(auth)/_actions";
 import { FormSubmitButton } from "@/components";
 import { FormInput, PasswordInput } from "@/shared";
 import Link from "next/link";
 import { FC } from "react";
 import { useFormState } from "react-dom";
-import { FormContextType } from "@/@types";
-import { FormContext } from "@/app/(auth)/_context";
 
-const RegisterForm: FC = () => {
+const LoginForm: FC = () => {
   const [formState, action] = useFormState<FormContextType, FormData>(
-    registerUserFormAction,
+    loginUserFormAction,
     {
       message: "",
       name: "",
@@ -35,13 +35,6 @@ const RegisterForm: FC = () => {
           "
         >
           <FormInput
-            name="name"
-            type="text"
-            placeholder="Enter your name here"
-            withLabel
-            labelName="Name"
-          />
-          <FormInput
             name="email"
             type="email"
             placeholder="Enter your email here"
@@ -54,13 +47,6 @@ const RegisterForm: FC = () => {
             placeholder="Enter your password here"
             withLabel
             labelName="Password"
-          />
-          <PasswordInput
-            name="confirm-password"
-            type="password"
-            placeholder="Enter your password again"
-            withLabel
-            labelName="Confirm password"
           />
         </div>
         {formState.name === "form" && (
@@ -96,16 +82,16 @@ const RegisterForm: FC = () => {
             "
             fallback={"Please wait..."}
           >
-            Register
+            Login
           </FormSubmitButton>
           <Link
             className="
               text-center
               hover:underline
             "
-            href={"/login"}
+            href={"/register"}
           >
-            Already registered? Login
+            New here? Register
           </Link>
         </div>
       </form>
@@ -113,4 +99,4 @@ const RegisterForm: FC = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
