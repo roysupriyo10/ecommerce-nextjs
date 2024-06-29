@@ -1,4 +1,4 @@
-import { ICart } from "@/@types/model";
+import { ICart, PRODUCT_SIZES } from "@/@types/model";
 import { createMongooseModel } from "@/utils";
 import { Schema } from "mongoose";
 
@@ -9,13 +9,26 @@ const cartSchema = new Schema<ICart>(
       ref: "User",
     },
     items: {
-      type: [Schema.Types.ObjectId],
-      ref: "Product",
+      type: [
+        {
+          productId: {
+            type: Schema.Types.ObjectId,
+            ref: "Product",
+            required: true,
+          },
+          size: {
+            type: String,
+            enum: PRODUCT_SIZES,
+            required: true,
+          },
+        },
+      ],
+      default: [],
     },
   },
   { timestamps: true },
 );
 
-const Cart = createMongooseModel<ICart>("Cart", cartSchema);
+const CartModel = createMongooseModel<ICart>("Cart", cartSchema);
 
-export default Cart;
+export default CartModel;

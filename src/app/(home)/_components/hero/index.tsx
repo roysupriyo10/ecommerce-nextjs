@@ -1,4 +1,5 @@
 import { HeroImage } from "@/assets";
+import { LinkButton } from "@/components";
 import { ImgRightArrowIcon } from "@/icons";
 import { Button } from "@/shared";
 import Image from "next/image";
@@ -55,23 +56,7 @@ const Hero: FC = () => {
         >
           new collections for everyone
         </h1>
-        <Button
-          className="
-            flex
-            items-center
-            gap-x-2
-            bg-red-800
-          "
-        >
-          <span
-            className="
-              text-white
-            "
-          >
-            Latest Collection
-          </span>
-          <ImgRightArrowIcon fill="white" />
-        </Button>
+        <LinkButton title="Latest Collection" scrollToId="new-collections" />
       </div>
       <div
         className="

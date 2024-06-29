@@ -1,14 +1,14 @@
 "use client";
 
-import { IUser } from "@/@types/model";
-import { ImgDownChevronIcon } from "@/icons";
+import { logoutUserFormAction } from "@/app/(auth)/_actions";
+import { ImgDownChevronIcon, ImgUserIcon } from "@/icons";
 import { FC, useState } from "react";
 
 type ProfileProps = {
-  user: IUser;
+  name: string;
 };
 
-const Profile: FC<ProfileProps> = ({ user }) => {
+const Profile: FC<ProfileProps> = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -16,15 +16,10 @@ const Profile: FC<ProfileProps> = ({ user }) => {
       onMouseOver={() => setIsOpen(true)}
       onMouseOut={() => setIsOpen(false)}
       className={`
-        px-10
         py-2
-        rounded-full
-        border-[1px]
-        border-black/30
         transition-all
         duration-300
         ease-in-out
-        hover:bg-gray-200
         relative
         flex
         items-center
@@ -32,11 +27,25 @@ const Profile: FC<ProfileProps> = ({ user }) => {
         cursor-pointer
       `}
     >
-      <span>{user.name}</span>
+      <span
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        <ImgUserIcon fill="black" width={24} height={24} />
+      </span>
+      <span
+        className="
+          max-sm:hidden
+        "
+      >
+        {name}
+      </span>
       <span
         className={`
           transition-all
           duration-500
+          max-sm:hidden
           ease-in-out
           ${
             isOpen
@@ -70,11 +79,11 @@ const Profile: FC<ProfileProps> = ({ user }) => {
           transition-all
           duration-500
           right-0
-          w-[400px]
+          w-[200px]
           ease-in-out
           flex
           flex-col
-          h-[600px]
+          h-[200px]
         `}
       >
         <div
@@ -92,7 +101,7 @@ const Profile: FC<ProfileProps> = ({ user }) => {
             px-10
           `}
         >
-          <form action={""}>
+          <form action={logoutUserFormAction}>
             <button>Logout</button>
           </form>
         </div>

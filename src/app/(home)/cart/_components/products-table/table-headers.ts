@@ -4,5 +4,5 @@ export const PRODUCTS_TABLE_HEADERS = [
   "Price",
   "Quantity",
   "Total",
-  "Remove"
-]
+  "Remove",
+];

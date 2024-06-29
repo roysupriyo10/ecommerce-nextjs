@@ -1,7 +1,7 @@
 "use client";
 
 import { navbarLinks } from "@/constants/navbarLinks";
-import { ImgCartIcon, ImgCloseIcon, ImgHamburgerIcon } from "@/icons";
+import { ImgCloseIcon, ImgHamburgerIcon } from "@/icons";
 import { FC, useState } from "react";
 import CartButton from "../cart-button";
 import Link from "next/link";
@@ -10,7 +10,11 @@ const MobileNav: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <>
+    <div
+      className="
+        relative
+      "
+    >
       <button
         onClick={() => {
           setIsOpen(!isOpen);
@@ -29,16 +33,19 @@ const MobileNav: FC = () => {
       <div
         className={`
           absolute
+          right-0
+          z-[9999]
+          w-[200px]
           sm:hidden
           ${
             isOpen
               ? `
                 opacity-100
                 pointer-events-auto
-                top-[calc(100%_+_30px)]
+                top-[calc(100%_+_36px)]
               `
               : `
-                top-[calc(-100%_-_24px)]
+                top-[calc(-100%_-_30px)]
                 opacity-0
                 pointer-events-none
               `
@@ -47,8 +54,6 @@ const MobileNav: FC = () => {
           bg-gray-100
           duration-700
           ease-in-out
-          right-0
-          w-[80%]
           p-4
           gap-y-4
           rounded-lg
@@ -59,7 +64,13 @@ const MobileNav: FC = () => {
         `}
       >
         {navbarLinks.map(({ displayText, pathname }) => (
-          <Link key={pathname} href={pathname}>
+          <Link
+            onClick={() => {
+              setIsOpen(false);
+            }}
+            key={pathname}
+            href={pathname}
+          >
             <span
               className="
                 link-underline
@@ -71,36 +82,8 @@ const MobileNav: FC = () => {
             </span>
           </Link>
         ))}
-        <div
-          className="
-            flex
-            items-center
-            w-full
-            gap-x-4
-            justify-between
-          "
-        >
-          <Link href={"/login"}>
-            <button
-              className="
-                px-10
-                py-2
-                rounded-full
-                border-[1px]
-                border-black/30
-                transition-all
-                duration-300
-                ease-in-out
-                hover:bg-gray-200
-              "
-            >
-              Login
-            </button>
-          </Link>
-          <CartButton />
-        </div>
       </div>
-    </>
+    </div>
   );
 };
 

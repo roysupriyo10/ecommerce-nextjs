@@ -12,7 +12,7 @@ export default function Register() {
   return (
     <main
       className="
-        min-w-[90vh]
+        min-w-[90vw]
         sm:min-w-[500px]
         md:min-w-[600px]
         border-[1px]

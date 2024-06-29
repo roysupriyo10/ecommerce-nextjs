@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Best Shop Ever",
 };
 
-export default function Men({ searchParams }) {
+export default function Men() {
   return (
     <main
       className="

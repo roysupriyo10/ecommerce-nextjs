@@ -1,4 +1,7 @@
 export * from "./img_hamburger_icon";
+export * from "./img_user_icon";
+export * from "./img_right_chevron_icon";
+export * from "./img_home_icon";
 export * from "./img_down_chevron_icon";
 export * from "./img_show_hide_password_icon";
 export * from "./img_left_arrow_icon";

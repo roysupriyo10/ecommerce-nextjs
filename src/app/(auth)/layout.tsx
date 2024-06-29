@@ -24,19 +24,17 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en">
-      <body
-        className={`
-          min-h-screen
-          flex
-          flex-col
-          items-center
-          justify-center
-          ${inter.className}
-        `}
-      >
-        {children}
-      </body>
-    </html>
+    <section
+      className={`
+        min-h-screen
+        flex
+        flex-col
+        items-center
+        justify-center
+        ${inter.className}
+      `}
+    >
+      {children}
+    </section>
   );
 }

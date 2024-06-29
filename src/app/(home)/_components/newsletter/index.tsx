@@ -7,7 +7,10 @@ const NewsLetter: FC = () => {
       className="
         flex
         flex-col
+        max-sm:text-center
         h-[400px]
+        px-4
+        py-8
         items-center
         justify-center
         gap-y-8
@@ -17,7 +20,7 @@ const NewsLetter: FC = () => {
     >
       <h2
         className="
-          text-1xl
+          text-xl
           sm:text-2xl
           lg:text-3xl
           md:text-4xl
@@ -40,7 +43,8 @@ const NewsLetter: FC = () => {
         <h4>Subscribe to our newsletter and stay updated</h4>
         <SubscribeEmail
           className="
-            w-[50%]
+            w-[80%]
+            sm:w-[50%]
           "
         />
       </div>

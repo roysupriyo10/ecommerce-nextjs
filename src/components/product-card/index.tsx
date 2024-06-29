@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { IProduct } from "@/@types/model";
 import { FallbackProductImage } from "@/assets";
+import Link from "next/link";
 
 type ProductCardProps = {
   product: IProduct;
@@ -9,7 +10,8 @@ type ProductCardProps = {
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
-    <div
+    <Link
+      href={`/product/${product._id}`}
       className="
         flex
         flex-col
@@ -77,7 +79,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

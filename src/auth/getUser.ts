@@ -2,9 +2,7 @@
 
 import { connectDatabase } from "@/lib";
 import { token } from "./token";
-import { User } from "@/models";
-// import { cookies } from "next/headers";
-// import { USER_ACCESS_TOKEN_COOKIE } from "@/constants";
+import { UserModel } from "@/models";
 import { IUser } from "@/@types/model";
 
 export async function getUser() {
@@ -16,13 +14,11 @@ export async function getUser() {
 
   await connectDatabase();
 
-  const user = await User.findOne({
+  const user = await UserModel.findOne({
     _id: authToken.id,
-  }).select("-password");
-
-  // if (!user) {
-  //   cookies().delete(USER_ACCESS_TOKEN_COOKIE);
-  // }
+  })
+    .select("-password")
+    .lean();
 
   return user as IUser;
 }

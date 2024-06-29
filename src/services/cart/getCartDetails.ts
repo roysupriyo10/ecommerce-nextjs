@@ -1,17 +1,24 @@
-import { getUser } from "@/auth";
-import { Cart } from "@/models";
+import { Types } from "mongoose";
+import { CartModel } from "@/models";
 import { ICart } from "@/@types/model";
+import { connectDatabase } from "@/lib";
 
-export async function getCartDetails() {
-  const user = await getUser();
+type GetCartDetailsParams = {
+  userId: string | Types.ObjectId;
+};
 
-  if (!user) {
+export async function getCartDetails(params: GetCartDetailsParams) {
+  await connectDatabase();
+
+  const cart = (await CartModel.findOne({
+    associatedUserId: params.userId,
+  })
+    .populate("items.productId")
+    .lean()) as ICart;
+
+  if (!cart) {
     return null;
   }
 
-  const cart = await Cart.findOne({
-    associatedUserId: user._id,
-  });
-
-  return cart as ICart;
+  return cart;
 }

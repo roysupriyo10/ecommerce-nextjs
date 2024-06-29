@@ -6,3 +6,5 @@ export const cookieConfig: {} = {
 };
 
 export const USER_ACCESS_TOKEN_COOKIE = "user_access_token";
+
+export const TEMP_CART_COOKIE = "temporary_cart_id";

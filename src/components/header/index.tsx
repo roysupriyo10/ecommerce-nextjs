@@ -1,14 +1,16 @@
+"use server";
+
 import { FC } from "react";
-import MobileNav from "./Mobile";
 import { navbarLinks } from "@/constants";
-import CartButton from "../cart-button";
 import Link from "next/link";
-import ProfileButton from "../profile-button";
+import NavActions from "../nav-actions";
+import MobileNav from "./Mobile";
 
 const Header: FC = () => {
   return (
     <header
       className="
+        z-[1]
         px-4
         sm:px-6
         md:px-8
@@ -25,7 +27,7 @@ const Header: FC = () => {
           flex
           items-center
           justify-between
-          relative
+          gap-x-4
         "
       >
         <div
@@ -66,17 +68,8 @@ const Header: FC = () => {
               </Link>
             ))}
           </div>
-          <div
-            className="
-              flex
-              items-center
-              gap-x-4
-            "
-          >
-            <ProfileButton />
-            <CartButton />
-          </div>
         </nav>
+        <NavActions />
         <MobileNav />
       </div>
     </header>

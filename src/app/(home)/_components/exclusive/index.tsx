@@ -3,6 +3,7 @@ import { FC } from "react";
 import { ExclusiveImage } from "@/assets";
 import { Button } from "@/shared";
 import { ImgRightArrowIcon } from "@/icons";
+import { LinkButton } from "@/components";
 
 const Exclusive: FC = () => {
   return (
@@ -20,6 +21,7 @@ const Exclusive: FC = () => {
         max-h-[600px]
         justify-center
         items-center
+        max-sm:text-center
       "
     >
       <div
@@ -51,23 +53,7 @@ const Exclusive: FC = () => {
         >
           ONLY ON BEST SELLER PRODUCTS
         </h4>
-        <Button
-          className="
-            bg-red-800
-            flex
-            items-center
-            gap-x-2
-          "
-        >
-          <span
-            className="
-              text-white
-            "
-          >
-            Check now
-          </span>
-          <ImgRightArrowIcon fill="white" />
-        </Button>
+        <LinkButton title="Check now" />
       </div>
       <div
         className="

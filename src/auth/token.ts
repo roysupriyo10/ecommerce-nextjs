@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export function token() {
   const token = cookies().get(USER_ACCESS_TOKEN_COOKIE);
 
-  if (!token) return null;
+  if (!token || !token.value) return null;
 
   const decoded = verify(
     token.value,

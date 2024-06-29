@@ -1,5 +1,9 @@
 import Header from "./header";
-import ProfileButton from "./profile-button";
+import TempCartCookieSetter from "./temp-cart-cookie-setter";
+import LinkButton from "./link-button";
+import BreadCrumbs from "./breadcrumbs";
+import ZoomableImage from "./zoomable-image";
+import NavActions from "./nav-actions";
 import FormSubmitButton from "./form-submit-button";
 import CartButton from "./cart-button";
 import SubscribeEmail from "./subscribe-email";
@@ -13,5 +17,9 @@ export {
   CartButton,
   ProductCard,
   SubscribeEmail,
-  ProfileButton,
+  NavActions,
+  LinkButton,
+  ZoomableImage,
+  BreadCrumbs,
+  TempCartCookieSetter,
 };

@@ -21,3 +21,8 @@
   background-size: 100% 2px;
   background-position: 0 calc(100%);
 }
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

@@ -17,6 +17,10 @@ const Footer: FC = () => {
         mt-12
         grid
         grid-cols-12
+        max-sm:flex
+        max-sm:flex-col
+        max-sm:gap-y-8
+        max-sm:items-center
       "
     >
       <div
@@ -31,6 +35,7 @@ const Footer: FC = () => {
           flex
           flex-col
           gap-y-4
+          max-sm:items-center
           col-span-3
         "
       >
@@ -47,6 +52,9 @@ const Footer: FC = () => {
           className="
             flex
             flex-col
+            max-sm:items-center
+            max-sm:flex-row
+            max-sm:gap-x-2
             gap-y-1
           "
         >

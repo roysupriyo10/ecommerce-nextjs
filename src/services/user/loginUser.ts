@@ -1,6 +1,6 @@
 import { IUser } from "@/@types/model";
 import { connectDatabase } from "@/lib";
-import { User } from "@/models";
+import { UserModel } from "@/models";
 import { compareHashWithPassword } from "@/utils";
 import { FormException } from "@/utils/classes";
 
@@ -12,11 +12,11 @@ type LoginUserParams = {
 export async function loginUser(params: LoginUserParams) {
   await connectDatabase();
 
-  const user = await User.findOne({ email: params.email });
+  const user = await UserModel.findOne({ email: params.email });
 
   if (!user) {
     throw new FormException({
-      message: "User does not exist",
+      message: "UserModel does not exist",
       name: "form",
       statusCode: 404,
     });

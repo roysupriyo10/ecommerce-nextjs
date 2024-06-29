@@ -26,9 +26,9 @@ const FormInput: FC<FormInputProps> = ({
   className,
   type = "text",
   withLabel,
-  inputClassName,
+  inputClassName = "",
   errorMessage,
-  labelClassName,
+  labelClassName = "",
   labelName,
   name,
   ...rest

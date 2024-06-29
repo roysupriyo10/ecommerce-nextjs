@@ -1,6 +1,6 @@
 import { IProduct, ProductCategory } from "@/@types/model";
 import { connectDatabase } from "@/lib";
-import { Product } from "@/models";
+import { ProductModel } from "@/models";
 import { FilterQuery } from "mongoose";
 
 type GetNewCollectionsParams = {
@@ -15,7 +15,7 @@ export async function getNewCollections(params: GetNewCollectionsParams) {
   if (params?.category) {
     query.category = params.category;
   }
-  const products = await Product.find(query);
+  const products = await ProductModel.find(query);
 
   return products;
 }

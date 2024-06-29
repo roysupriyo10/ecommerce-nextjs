@@ -1,8 +1,12 @@
 "use server";
 
 import { FormContextType } from "@/@types";
-import { cookieConfig, USER_ACCESS_TOKEN_COOKIE } from "@/constants";
-import { loginUser } from "@/services";
+import {
+  cookieConfig,
+  TEMP_CART_COOKIE,
+  USER_ACCESS_TOKEN_COOKIE,
+} from "@/constants";
+import { createCart, getTemporaryCartDetails, loginUser } from "@/services";
 import { fromErrorToFormState, generateJwtToken } from "@/utils";
 import { LoginFormData } from "@/validation";
 import { cookies } from "next/headers";
@@ -33,6 +37,21 @@ export const loginUserFormAction = async (
     cookies().set(USER_ACCESS_TOKEN_COOKIE, user_access_token, {
       ...cookieConfig,
     });
+
+    const tempCartCookie = cookies().get(TEMP_CART_COOKIE)?.value;
+
+    const tempCart = tempCartCookie
+      ? await getTemporaryCartDetails({
+          cartId: tempCartCookie,
+        })
+      : null;
+
+    if (tempCart) {
+      await createCart({
+        associatedUserId: user._id,
+        items: tempCart.items,
+      });
+    }
 
     return {
       message: "",

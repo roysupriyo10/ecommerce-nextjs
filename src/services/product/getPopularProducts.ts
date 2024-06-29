@@ -1,6 +1,6 @@
 import { ProductCategory } from "@/@types/model";
 import { connectDatabase } from "@/lib";
-import { Product } from "@/models";
+import { ProductModel } from "@/models";
 
 export async function getPopularProducts(
   category: ProductCategory,
@@ -8,5 +8,7 @@ export async function getPopularProducts(
 ) {
   await connectDatabase();
 
-  return await Product.find({ category }).sort({ new_price: 1 }).limit(count);
+  return await ProductModel.find({ category })
+    .sort({ new_price: 1 })
+    .limit(count);
 }

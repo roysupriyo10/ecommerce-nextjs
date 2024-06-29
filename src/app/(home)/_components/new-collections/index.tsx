@@ -15,6 +15,7 @@ const NewCollections: FC<NewCollectionsProps> = async ({
   const products = await getNewCollections({ category });
   return (
     <section
+      id="new-collections"
       className="
         flex
         flex-col
