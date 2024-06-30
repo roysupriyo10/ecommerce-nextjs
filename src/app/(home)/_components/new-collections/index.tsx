@@ -6,11 +6,13 @@ import { IProduct } from "@/@types/model";
 type NewCollectionsProps = {
   category?: IProduct["category"];
   showHeading?: boolean;
+  showBanner?: boolean;
 };
 
 const NewCollections: FC<NewCollectionsProps> = async ({
   category,
   showHeading = true,
+    showBanner = false,
 }) => {
   const products = await getNewCollections({ category });
   return (
@@ -22,6 +24,17 @@ const NewCollections: FC<NewCollectionsProps> = async ({
         gap-y-12
       "
     >
+      {
+        showBanner && (
+          <div
+            className="
+              h-[400px]
+            "
+          >
+
+          </div>
+        )
+      }
       {showHeading && (
         <h2
           className="

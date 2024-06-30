@@ -67,8 +67,6 @@ export async function addProductToCart(params: AddProductToCartParams) {
     };
   }
 
-  console.log(cartModel, filter, update, options);
-
   const cart = await cartModel.findOneAndUpdate(filter, update, options);
 
   return cart;

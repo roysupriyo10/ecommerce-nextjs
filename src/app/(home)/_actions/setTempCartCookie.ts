@@ -7,9 +7,7 @@ import { cookies } from "next/headers";
 export async function setTempCartCookie() {
   const tempCartCookie = cookies().get(TEMP_CART_COOKIE)?.value;
 
-  if (!tempCartCookie) {
-    cookies().set(TEMP_CART_COOKIE, randomUUID(), { ...cookieConfig });
-  }
+  if (tempCartCookie) return;
 
-  return;
+  cookies().set(TEMP_CART_COOKIE, randomUUID(), { ...cookieConfig });
 }

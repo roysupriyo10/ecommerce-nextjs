@@ -36,7 +36,9 @@ export default function RootLayout({
         >
           {children}
         </div>
-        <TempCartCookieSetter />
+        {
+          <TempCartCookieSetter />
+        }
         <Footer />
       </body>
     </html>

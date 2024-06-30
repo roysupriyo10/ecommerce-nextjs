@@ -3,6 +3,9 @@ import { connectDatabase } from "@/lib";
 import { UserModel } from "@/models";
 import { compareHashWithPassword } from "@/utils";
 import { FormException } from "@/utils/classes";
+import { convertTemporaryCartToCart } from "../cart";
+import { cookies } from "next/headers";
+import { TEMP_CART_COOKIE } from "@/constants";
 
 type LoginUserParams = {
   email: string;
@@ -12,7 +15,7 @@ type LoginUserParams = {
 export async function loginUser(params: LoginUserParams) {
   await connectDatabase();
 
-  const user = await UserModel.findOne({ email: params.email });
+  const user = (await UserModel.findOne({ email: params.email })) as IUser;
 
   if (!user) {
     throw new FormException({
@@ -38,5 +41,12 @@ export async function loginUser(params: LoginUserParams) {
     });
   }
 
-  return user as IUser;
+  const tempCartId = cookies().get(TEMP_CART_COOKIE)?.value;
+
+  await convertTemporaryCartToCart({
+    associatedUserId: user._id,
+    cartId: tempCartId,
+  });
+
+  return user;
 }

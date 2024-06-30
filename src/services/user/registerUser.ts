@@ -3,6 +3,9 @@ import { connectDatabase } from "@/lib";
 import { UserModel } from "@/models";
 import { hashPassword } from "@/utils";
 import { FormException } from "@/utils/classes";
+import { convertTemporaryCartToCart } from "../cart";
+import { cookies } from "next/headers";
+import { TEMP_CART_COOKIE } from "@/constants";
 
 type RegisterUserParams = {
   name: string;
@@ -29,6 +32,13 @@ export async function registerUser(params: RegisterUserParams) {
     password: hashedPassword,
     email: params.email,
     name: params.name,
+  });
+
+  const tempCartId = cookies().get(TEMP_CART_COOKIE)?.value;
+
+  await convertTemporaryCartToCart({
+    associatedUserId: newUser._id,
+    cartId: tempCartId,
   });
 
   return newUser as IUser;

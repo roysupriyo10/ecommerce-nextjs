@@ -5,7 +5,7 @@ type RatingProps = {
 };
 
 const Rating: FC<RatingProps> = ({ stars }) => {
-  return <div>{Array}</div>;
+  return <div>{stars}</div>;
 };
 
 export default Rating;
