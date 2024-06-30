@@ -86,6 +86,7 @@ const ProductImages: FC<ProductImagesProps> = ({
                 `}
               />
               <Image
+                priority
                 alt={`${altPrefix}-${index}`}
                 src={imageLocation}
                 width={0}

@@ -30,6 +30,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         "
       >
         <Image
+          priority
           className="
             w-full
             h-full
