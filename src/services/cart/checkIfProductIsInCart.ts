@@ -1,9 +1,8 @@
 import { ICart } from "@/@types/model";
 import { getUser } from "@/auth";
-import { cookieConfig, TEMP_CART_COOKIE } from "@/constants";
+import { TEMP_CART_COOKIE } from "@/constants";
 import { connectDatabase } from "@/lib";
 import { CartModel, TemporaryCartModel } from "@/models";
-import { randomUUID } from "crypto";
 import { FilterQuery, Types } from "mongoose";
 import { cookies } from "next/headers";
 
@@ -19,10 +18,6 @@ export async function checkIfProductIsInCart(
   const user = await getUser();
 
   const tempCartId = cookies().get(TEMP_CART_COOKIE)?.value;
-
-  if (!tempCartId) {
-    cookies().set(TEMP_CART_COOKIE, randomUUID(), { ...cookieConfig });
-  }
 
   let cartModel: typeof CartModel | typeof TemporaryCartModel;
 
@@ -55,5 +50,9 @@ export async function checkIfProductIsInCart(
     },
   ]);
 
-  return cart[0];
+  if (cart.length === 0) {
+    return null;
+  }
+
+  return cart[0] as ICart;
 }

@@ -133,7 +133,7 @@ export default async function Product({ params }: { params: { id: string } }) {
           </div>
           <p>{product.description}</p>
           <SizeSelector
-            itemsInBag={cartDetails.items}
+            itemsInBag={cartDetails?.items || []}
             productId={product._id.toString()}
             sizes={product.sizes || []}
           />

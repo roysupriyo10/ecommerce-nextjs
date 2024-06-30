@@ -6,7 +6,13 @@ import {
   Popular,
 } from "./_components";
 
-export default function Home() {
+export default function Home({ searchParams }: {
+  searchParams: {
+    page: string;
+  }
+}) {
+  console.log(searchParams);
+
   return (
     <main
       className="
@@ -18,7 +24,9 @@ export default function Home() {
       <Hero />
       <Popular />
       <Exclusive />
-      <NewCollections />
+      <NewCollections
+        page={searchParams.page}
+      />
       <NewsLetter />
     </main>
   );

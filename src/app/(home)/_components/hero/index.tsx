@@ -54,7 +54,7 @@ const Hero: FC = () => {
             xl:text-7xl
           "
         >
-          new collections for everyone
+          New collections for everyone
         </h1>
         <LinkButton title="Latest Collection" scrollToId="new-collections" />
       </div>

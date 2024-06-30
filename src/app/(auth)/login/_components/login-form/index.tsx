@@ -91,7 +91,7 @@ const LoginForm: FC = () => {
             "
             href={"/register"}
           >
-            New here? Register
+            Register
           </Link>
         </div>
       </form>

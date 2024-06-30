@@ -57,6 +57,8 @@ const PasswordInput: FC<PasswordInputProps> = ({
       className="
         flex
         w-full
+        border-bg-black/20
+        border-b-[1px]
         items-center
         gap-x-4
       "
@@ -65,15 +67,14 @@ const PasswordInput: FC<PasswordInputProps> = ({
         type={showPassword ? "text" : type}
         className={`
           bg-transparent
-          border-bg-black/20
           outline-none
-          border-b-[1px]
           py-2
           placeholder:text-sm
           w-full
           ${inputClassName}
           `}
         name={name}
+        autoComplete="one-time-code"
         {...rest}
       />
       <button
@@ -107,7 +108,7 @@ const PasswordInput: FC<PasswordInputProps> = ({
           className="
             flex
             max-sm:flex-col
-            items-center
+            sm:items-center
             w-full
             justify-between
           "

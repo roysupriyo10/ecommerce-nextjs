@@ -52,6 +52,7 @@ const FormInput: FC<FormInputProps> = ({
         ${inputClassName}
       `}
       name={name}
+      autoComplete="one-time-code"
       {...rest}
     />
   );
@@ -71,7 +72,7 @@ const FormInput: FC<FormInputProps> = ({
           className="
             flex
             max-sm:flex-col
-            items-center
+            sm:items-center
             w-full
             justify-between
           "
