@@ -72,7 +72,7 @@ const Hero: FC = () => {
           alt="hero image"
           className="
             h-full
-            object-cover
+            w-full
           "
           src={HeroImage}
         />

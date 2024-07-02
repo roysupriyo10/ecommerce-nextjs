@@ -1,3 +1,4 @@
+import { cleanPageParameter } from "@/utils";
 import {
   Exclusive,
   Hero,
@@ -11,7 +12,7 @@ export default function Home({ searchParams }: {
     page: string;
   }
 }) {
-  console.log(searchParams);
+  const cleanedPageParam = cleanPageParameter(searchParams.page)
 
   return (
     <main
@@ -25,7 +26,7 @@ export default function Home({ searchParams }: {
       <Popular />
       <Exclusive />
       <NewCollections
-        page={searchParams.page}
+        page={cleanedPageParam}
       />
       <NewsLetter />
     </main>

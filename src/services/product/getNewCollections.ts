@@ -29,18 +29,24 @@ export async function getNewCollections(params: GetNewCollectionsParams) {
     query.category = category;
   }
 
+  let products: IProduct[];
+
   if (paginate === true) {
-    // query[`createdAt`] = {
-    //   $lte: createdOn,
-    // };
-    const products = await ProductModel.find(query)
+    products = (await ProductModel.find(query)
       .limit(limit)
-      .skip(limit * (page - 1));
+      .skip(limit * (page - 1))) as IProduct[];
 
-    return products;
+    // return products;
   } else {
-    const products = await ProductModel.find(query);
+    products = (await ProductModel.find(query)) as IProduct[];
 
-    return products;
+    // return products;
   }
+
+  const totalProducts = await ProductModel.countDocuments();
+
+  return {
+    totalProducts,
+    products,
+  };
 }

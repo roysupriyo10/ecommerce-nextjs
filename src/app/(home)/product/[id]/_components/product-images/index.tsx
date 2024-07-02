@@ -3,10 +3,10 @@
 import { ZoomableImage } from "@/components";
 import { ImgLeftArrowIcon, ImgRightArrowIcon } from "@/icons";
 import Image from "next/image";
-import { FC, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 
 type ProductImagesProps = {
-  images: string[];
+  images: string[] | ReactNode[];
   altPrefix: string;
   className?: string;
   defaultIndex?: number;
@@ -85,6 +85,8 @@ const ProductImages: FC<ProductImagesProps> = ({
                   }
                 `}
               />
+              {
+                typeof imageLocation === "string" ? (
               <Image
                 priority
                 alt={`${altPrefix}-${index}`}
@@ -97,6 +99,10 @@ const ProductImages: FC<ProductImagesProps> = ({
                   height: "100%",
                 }}
               />
+                ) : (
+                imageLocation
+                )
+              }
             </div>
           );
         })}
@@ -109,6 +115,8 @@ const ProductImages: FC<ProductImagesProps> = ({
           h-full
         "
       >
+        {
+          typeof images[activeIndex] === "string" ? (
         <ZoomableImage
           className="
             max-sm:grow
@@ -116,6 +124,10 @@ const ProductImages: FC<ProductImagesProps> = ({
           zoomLevel={1.1}
           src={images[activeIndex]}
         />
+          ) : (
+          images[activeIndex]
+          )
+        }
         <span
           onClick={() =>
             setActiveIndex(

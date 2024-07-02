@@ -7,7 +7,7 @@ type NewCollectionsProps = {
   category?: IProduct["category"];
   showHeading?: boolean;
   showBanner?: boolean;
-  page?: string;
+  page?: number;
   createdOn?: number;
 };
 
@@ -15,12 +15,13 @@ const NewCollections: FC<NewCollectionsProps> = async ({
   category,
   showHeading = true,
   showBanner = false,
-  page = "1",
+  page = 1,
 }) => {
-  const products = await getNewCollections({
+  // const productPages = 
+  const { products, totalProducts } = await getNewCollections({
     category,
     paginate: true,
-    page: Number(page),
+    page,
     limit: 8,
   });
 
@@ -70,11 +71,11 @@ const NewCollections: FC<NewCollectionsProps> = async ({
         "
       >
         {products.map((product) => (
-          <ProductCard key={product._id} product={product} />
+          <ProductCard key={product._id.toString()} product={product} />
         ))}
       </div>
       {
-        page
+        totalProducts / 8 - Number(page)
       }
     </section>
   );
