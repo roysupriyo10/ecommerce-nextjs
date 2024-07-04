@@ -2,13 +2,13 @@ import { FC } from "react";
 import { getNewCollections } from "@/services";
 import { ProductCard } from "@/components";
 import { IProduct } from "@/@types/model";
+import { Pagination } from "@/shared";
 
 type NewCollectionsProps = {
   category?: IProduct["category"];
   showHeading?: boolean;
   showBanner?: boolean;
   page?: number;
-  createdOn?: number;
 };
 
 const NewCollections: FC<NewCollectionsProps> = async ({
@@ -17,7 +17,6 @@ const NewCollections: FC<NewCollectionsProps> = async ({
   showBanner = false,
   page = 1,
 }) => {
-  // const productPages = 
   const { products, totalProducts } = await getNewCollections({
     category,
     paginate: true,
@@ -38,10 +37,29 @@ const NewCollections: FC<NewCollectionsProps> = async ({
         showBanner && (
           <div
             className="
-              h-[400px]
+              h-[200px]
+              sm:h-[250px]
+              md:h-[350px]
+              lg:h-[400px]
+              xl:h-[450px]
+              border-[1px]
+              border-black
+              flex
+              items-center
+              justify-center
             "
           >
-
+            <h2
+              className="
+                text-xl
+                sm:text-2xl
+                lg:text-3xl
+                md:text-4xl
+                font-medium
+              "
+            >
+            This is a sample banner
+            </h2>
           </div>
         )
       }
@@ -66,6 +84,7 @@ const NewCollections: FC<NewCollectionsProps> = async ({
           grid
           grid-cols-2
           sm:grid-cols-4
+          auto-rows-[400px]
           sm:gap-4
           gap-4
         "
@@ -74,9 +93,15 @@ const NewCollections: FC<NewCollectionsProps> = async ({
           <ProductCard key={product._id.toString()} product={product} />
         ))}
       </div>
-      {
-        totalProducts / 8 - Number(page)
-      }
+      <Pagination
+      mapHref={page => {
+        return `/?page=${page + 1}`
+      }}
+        totalCount={totalProducts}
+        pageSize={8}
+        siblingCount={0}
+        currentPage={Number(page)}
+      />
     </section>
   );
 };

@@ -21,9 +21,15 @@ export default function Men({ searchParams }: {
         flex
         flex-col
         gap-y-20
+        pt-4
+        sm:pt-6
+        md:pt-8
+        lg:pt-10
+        xl:pt-12
       "
     >
       <NewCollections
+      showBanner
         page={cleanedPageParam}
         category={ProductCategory.MEN} showHeading={false} />
     </main>

@@ -8,9 +8,12 @@ export default function Women() {
         flex
         flex-col
         gap-y-20
+        pt-20
       "
     >
-      <NewCollections category={ProductCategory.WOMEN} showHeading={false} />
+      <NewCollections
+      showBanner
+      category={ProductCategory.WOMEN} showHeading={false} />
     </main>
   );
 }

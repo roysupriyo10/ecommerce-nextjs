@@ -8,9 +8,12 @@ export default function Kids() {
         flex
         flex-col
         gap-y-20
+        pt-20
       "
     >
-      <NewCollections category={ProductCategory.KIDS} showHeading={false} />
+      <NewCollections 
+      showBanner
+      category={ProductCategory.KIDS} showHeading={false} />
     </main>
   );
 }

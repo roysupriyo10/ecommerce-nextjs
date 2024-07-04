@@ -37,6 +37,7 @@ const Popular: FC = async () => {
           grid
           grid-cols-2
           sm:grid-cols-4
+          auto-rows-[400px]
           sm:gap-4
           gap-4
         "

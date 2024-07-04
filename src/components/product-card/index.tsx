@@ -27,13 +27,19 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       <div
         className="
           flex-[10]
+          max-h-full
+          max-w-full
         "
       >
         <Image
           priority
+          width={0}
+          sizes="100vw"
+          height={0}
           className="
             w-full
             h-full
+            aspect-[3.2/4]
             object-cover
           "
           alt={`${product.name} image`}
