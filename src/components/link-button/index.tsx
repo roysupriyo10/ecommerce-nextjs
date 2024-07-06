@@ -1,8 +1,7 @@
 "use client";
 
 import { ImgRightArrowIcon } from "@/icons";
-import { Button } from "@/shared";
-import Link from "next/link";
+import { Button, TransitionLink } from "@/shared";
 import { FC, useState } from "react";
 
 type LinkButtonProps = {
@@ -78,7 +77,7 @@ const LinkButton: FC<LinkButtonProps> = ({
   );
 
   if (withLink) {
-    return <Link href={linkPathname}>{button}</Link>;
+    return <TransitionLink href={linkPathname}>{button}</TransitionLink>;
   } else {
     return button;
   }

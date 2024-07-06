@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { IProduct } from "@/@types/model";
 import { FallbackProductImage } from "@/assets";
-import Link from "next/link";
+import { TransitionLink } from "@/shared";
 
 type ProductCardProps = {
   product: IProduct;
@@ -10,7 +10,7 @@ type ProductCardProps = {
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
-    <Link
+    <TransitionLink
       href={`/product/${product._id}`}
       className="
         flex
@@ -86,7 +86,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           </span>
         </div>
       </div>
-    </Link>
+    </TransitionLink>
   );
 };
 

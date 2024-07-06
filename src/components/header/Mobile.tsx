@@ -2,9 +2,8 @@
 
 import { navbarLinks } from "@/constants/navbarLinks";
 import { ImgCloseIcon, ImgHamburgerIcon } from "@/icons";
+import { TransitionLink } from "@/shared";
 import { FC, useState } from "react";
-import CartButton from "../cart-button";
-import Link from "next/link";
 
 const MobileNav: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -64,7 +63,7 @@ const MobileNav: FC = () => {
         `}
       >
         {navbarLinks.map(({ displayText, pathname }) => (
-          <Link
+          <TransitionLink
             onClick={() => {
               setIsOpen(false);
             }}
@@ -80,7 +79,7 @@ const MobileNav: FC = () => {
             >
               {displayText}
             </span>
-          </Link>
+          </TransitionLink>
         ))}
       </div>
     </div>

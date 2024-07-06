@@ -4,8 +4,7 @@ import { FormContextType } from "@/@types";
 import { FormContext } from "@/app/(auth)/_context";
 import { loginUserFormAction } from "@/app/(auth)/_actions";
 import { FormSubmitButton } from "@/components";
-import { FormInput, PasswordInput } from "@/shared";
-import Link from "next/link";
+import { FormInput, PasswordInput, TransitionLink } from "@/shared";
 import { FC } from "react";
 import { useFormState } from "react-dom";
 
@@ -84,7 +83,7 @@ const LoginForm: FC = () => {
           >
             Login
           </FormSubmitButton>
-          <Link
+          <TransitionLink
             className="
               text-center
               hover:underline
@@ -92,7 +91,7 @@ const LoginForm: FC = () => {
             href={"/register"}
           >
             Register
-          </Link>
+          </TransitionLink>
         </div>
       </form>
     </FormContext.Provider>

@@ -56,7 +56,7 @@ export default function ProductLoading() {
             flex
             flex-col
           "
-          >
+        >
           <div
             className="
               sm:mt-10
@@ -85,8 +85,7 @@ export default function ProductLoading() {
                   w-[200px]
                   animate-pulse
                 "
-              >
-              </h2>
+              ></h2>
             </div>
             <div
               className="
@@ -138,8 +137,7 @@ export default function ProductLoading() {
                   w-[50px]
                   animate-pulse
                 "
-              >
-              </p>
+              ></p>
               <p
                 className="
                   border-[3px]
@@ -147,8 +145,7 @@ export default function ProductLoading() {
                   w-[50px]
                   animate-pulse
                 "
-              >
-              </p>
+              ></p>
             </div>
           </div>
           <div
@@ -179,8 +176,7 @@ export default function ProductLoading() {
                   w-[200px]
                   animate-pulse
                 "
-              >
-              </h2>
+              ></h2>
             </div>
             <div
               className="
@@ -232,8 +228,7 @@ export default function ProductLoading() {
                   w-[50px]
                   animate-pulse
                 "
-              >
-              </p>
+              ></p>
               <p
                 className="
                   border-[3px]
@@ -241,12 +236,11 @@ export default function ProductLoading() {
                   w-[50px]
                   animate-pulse
                 "
-              >
-              </p>
+              ></p>
             </div>
           </div>
         </div>
       </section>
     </main>
-  )
+  );
 }

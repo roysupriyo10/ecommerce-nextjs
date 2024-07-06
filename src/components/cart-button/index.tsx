@@ -2,14 +2,14 @@
 
 import { ImgCartIcon } from "@/icons";
 import { getCart } from "@/services";
-import Link from "next/link";
+import { TransitionLink } from "@/shared";
 import { FC } from "react";
 
 const CartButton: FC = async () => {
   const cart = await getCart();
 
   return (
-    <Link
+    <TransitionLink
       className="
         relative
         rounded-full
@@ -43,7 +43,7 @@ const CartButton: FC = async () => {
         </span>
       )}
       <ImgCartIcon fill="black" width={24} height={24} />
-    </Link>
+    </TransitionLink>
   );
 };
 

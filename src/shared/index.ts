@@ -1,4 +1,5 @@
 import Button from "./button";
+import TransitionLink from "./transition-link";
 import Pagination from "./pagination";
 import ImageSkeleton from "./image-skeleton";
 import PasswordInput from "./password-input";
@@ -11,5 +12,6 @@ export {
   FormInput,
   ImageSkeleton,
   PasswordInput,
+  TransitionLink,
   GenericModal,
 };

@@ -1,6 +1,6 @@
 import { NavbarLink } from "@/@types";
 import { ImgHomeIcon, ImgRightChevronIcon } from "@/icons";
-import Link from "next/link";
+import { TransitionLink } from "@/shared";
 import { FC } from "react";
 
 type BreadCrumbsProps = {
@@ -28,7 +28,7 @@ const BreadCrumbs: FC<BreadCrumbsProps> = ({ className = "", steps }) => {
       >
         <li className="flex items-center">
           <ImgHomeIcon width={20} height={20} />
-          <Link
+          <TransitionLink
             href="/"
             className="
               ms-1
@@ -38,7 +38,7 @@ const BreadCrumbs: FC<BreadCrumbsProps> = ({ className = "", steps }) => {
             "
           >
             Home
-          </Link>
+          </TransitionLink>
         </li>
         {steps.map(({ displayText, pathname }) => (
           <li key={pathname}>
@@ -49,7 +49,7 @@ const BreadCrumbs: FC<BreadCrumbsProps> = ({ className = "", steps }) => {
               "
             >
               <ImgRightChevronIcon width={20} height={20} />
-              <Link
+              <TransitionLink
                 href={pathname}
                 className="
                   ms-1
@@ -59,7 +59,7 @@ const BreadCrumbs: FC<BreadCrumbsProps> = ({ className = "", steps }) => {
                 "
               >
                 {displayText}
-              </Link>
+              </TransitionLink>
             </div>
           </li>
         ))}

@@ -8,12 +8,14 @@ export const metadata: Metadata = {
   description: "Best Shop Ever",
 };
 
-export default function Men({ searchParams }: {
+export default function Men({
+  searchParams,
+}: {
   searchParams: {
     page: string;
-  }
+  };
 }) {
-  const cleanedPageParam = cleanPageParameter(searchParams.page)
+  const cleanedPageParam = cleanPageParameter(searchParams.page);
 
   return (
     <main
@@ -29,9 +31,11 @@ export default function Men({ searchParams }: {
       "
     >
       <NewCollections
-      showBanner
+        showBanner
         page={cleanedPageParam}
-        category={ProductCategory.MEN} showHeading={false} />
+        category={ProductCategory.MEN}
+        showHeading={false}
+      />
     </main>
   );
 }

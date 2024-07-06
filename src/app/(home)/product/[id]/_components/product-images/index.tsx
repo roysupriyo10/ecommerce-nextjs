@@ -85,24 +85,22 @@ const ProductImages: FC<ProductImagesProps> = ({
                   }
                 `}
               />
-              {
-                typeof imageLocation === "string" ? (
-              <Image
-                priority
-                alt={`${altPrefix}-${index}`}
-                src={imageLocation}
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-                ) : (
+              {typeof imageLocation === "string" ? (
+                <Image
+                  priority
+                  alt={`${altPrefix}-${index}`}
+                  src={imageLocation}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />
+              ) : (
                 imageLocation
-                )
-              }
+              )}
             </div>
           );
         })}
@@ -115,19 +113,17 @@ const ProductImages: FC<ProductImagesProps> = ({
           h-full
         "
       >
-        {
-          typeof images[activeIndex] === "string" ? (
-        <ZoomableImage
-          className="
+        {typeof images[activeIndex] === "string" ? (
+          <ZoomableImage
+            className="
             max-sm:grow
           "
-          zoomLevel={1.1}
-          src={images[activeIndex]}
-        />
-          ) : (
+            zoomLevel={1.1}
+            src={images[activeIndex]}
+          />
+        ) : (
           images[activeIndex]
-          )
-        }
+        )}
         <span
           onClick={() =>
             setActiveIndex(

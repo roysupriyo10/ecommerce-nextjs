@@ -12,8 +12,10 @@ export default function Women() {
       "
     >
       <NewCollections
-      showBanner
-      category={ProductCategory.WOMEN} showHeading={false} />
+        showBanner
+        category={ProductCategory.WOMEN}
+        showHeading={false}
+      />
     </main>
   );
 }

@@ -11,9 +11,11 @@ export default function Kids() {
         pt-20
       "
     >
-      <NewCollections 
-      showBanner
-      category={ProductCategory.KIDS} showHeading={false} />
+      <NewCollections
+        showBanner
+        category={ProductCategory.KIDS}
+        showHeading={false}
+      />
     </main>
   );
 }

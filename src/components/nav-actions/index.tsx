@@ -1,10 +1,10 @@
 "use server";
 
 import { getUser } from "@/auth";
-import Link from "next/link";
 import { FC } from "react";
 import Profile from "./Profile";
 import CartButton from "../cart-button";
+import { TransitionLink } from "@/shared";
 
 const NavActions: FC = async () => {
   const user = await getUser();
@@ -20,7 +20,7 @@ const NavActions: FC = async () => {
       {user ? (
         <Profile name={user.name} />
       ) : (
-        <Link href={"/login"}>
+        <TransitionLink href={"/login"}>
           <button
             className="
               px-10
@@ -36,7 +36,7 @@ const NavActions: FC = async () => {
           >
             Login
           </button>
-        </Link>
+        </TransitionLink>
       )}
       <CartButton />
     </div>

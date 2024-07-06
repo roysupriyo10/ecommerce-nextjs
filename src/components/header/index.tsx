@@ -2,9 +2,9 @@
 
 import { FC } from "react";
 import { navbarLinks } from "@/constants";
-import Link from "next/link";
 import NavActions from "../nav-actions";
 import MobileNav from "./Mobile";
+import { TransitionLink } from "@/shared";
 
 const Header: FC = () => {
   return (
@@ -35,7 +35,7 @@ const Header: FC = () => {
             grow
           "
         >
-          <Link href="/">Logo</Link>
+          <TransitionLink href="/">Logo</TransitionLink>
         </div>
         <nav
           className="
@@ -54,7 +54,7 @@ const Header: FC = () => {
             "
           >
             {navbarLinks.map(({ displayText, pathname }) => (
-              <Link key={pathname} href={pathname}>
+              <TransitionLink key={pathname} href={pathname}>
                 <span
                   className="
                     link-underline
@@ -65,7 +65,7 @@ const Header: FC = () => {
                 >
                   {displayText}
                 </span>
-              </Link>
+              </TransitionLink>
             ))}
           </div>
         </nav>

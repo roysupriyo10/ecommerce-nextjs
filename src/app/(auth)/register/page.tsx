@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { RegisterForm } from "./_components";
 import { BackButton } from "../_components";
-import Link from "next/link";
+import { TransitionLink } from "@/shared";
 
 export const metadata: Metadata = {
   title: "Register | Ecommerce Platform",
@@ -34,7 +34,7 @@ export default function Register() {
       >
         <BackButton />
         <div>
-          <Link href="/">Logo</Link>
+          <TransitionLink href="/">Logo</TransitionLink>
         </div>
       </div>
       <RegisterForm />

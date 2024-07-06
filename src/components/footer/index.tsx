@@ -1,5 +1,5 @@
 import { socials } from "@/constants";
-import Link from "next/link";
+import { TransitionLink } from "@/shared";
 import { FC } from "react";
 
 const Footer: FC = () => {
@@ -28,7 +28,7 @@ const Footer: FC = () => {
           col-span-3
         "
       >
-        <Link href="/">Logo</Link>
+        <TransitionLink href="/">Logo</TransitionLink>
       </div>
       <div
         className="
@@ -59,7 +59,7 @@ const Footer: FC = () => {
           "
         >
           {socials.map(({ url, displayText, icon }) => (
-            <Link
+            <TransitionLink
               key={url}
               className="
                 text-gray-700
@@ -73,7 +73,7 @@ const Footer: FC = () => {
             >
               {icon}
               <span>{displayText}</span>
-            </Link>
+            </TransitionLink>
           ))}
         </div>
       </div>

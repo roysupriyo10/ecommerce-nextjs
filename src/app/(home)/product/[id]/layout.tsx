@@ -1,8 +1,10 @@
 import { ReactNode, Suspense } from "react";
-import ProductLoading from './loading';
+import ProductLoading from "./loading";
 
-export default function ProductLayout({children}: Readonly<{
-  children: ReactNode
+export default function ProductLayout({
+  children,
+}: Readonly<{
+  children: ReactNode;
 }>) {
   // return (
   //   <Suspense
@@ -11,5 +13,5 @@ export default function ProductLayout({children}: Readonly<{
   //     {children}
   //   </Suspense>
   // )
-  return (<ProductLoading />)
+  return <ProductLoading />;
 }

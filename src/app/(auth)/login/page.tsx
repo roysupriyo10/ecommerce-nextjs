@@ -1,5 +1,5 @@
 import { BackButton } from "../_components";
-import Link from "next/link";
+import { TransitionLink } from "@/shared";
 import { LoginForm } from "./_components";
 
 export const metadata = {
@@ -33,7 +33,7 @@ export default function Login() {
       >
         <BackButton />
         <div>
-          <Link href="/">Logo</Link>
+          <TransitionLink href="/">Logo</TransitionLink>
         </div>
       </div>
       <LoginForm />

@@ -1,13 +1,13 @@
 "use client";
 
 import { ImgRightArrowIcon } from "@/icons";
-import Link from "next/link";
+import { TransitionLink } from "@/shared";
 import { FC, useState } from "react";
 
 const ShopNowButton: FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   return (
-    <Link
+    <TransitionLink
       href={"/"}
       onMouseOver={() => setIsHovered(true)}
       onMouseOut={() => setIsHovered(false)}
@@ -31,7 +31,7 @@ const ShopNowButton: FC = () => {
       >
         <ImgRightArrowIcon fill="black" width={16} height={16} />
       </span>
-    </Link>
+    </TransitionLink>
   );
 };
 

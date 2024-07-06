@@ -173,7 +173,7 @@ const ProductsTable: FC<ProductsTableProps> = ({
                     py-4
                   "
                 >
-                ${product.new_price * product.quantity}
+                  ${product.new_price * product.quantity}
                 </td>
                 <td
                   className="

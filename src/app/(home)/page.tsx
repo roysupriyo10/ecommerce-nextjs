@@ -7,12 +7,14 @@ import {
   Popular,
 } from "./_components";
 
-export default function Home({ searchParams }: {
+export default function Home({
+  searchParams,
+}: {
   searchParams: {
     page: string;
-  }
+  };
 }) {
-  const cleanedPageParam = cleanPageParameter(searchParams.page)
+  const cleanedPageParam = cleanPageParameter(searchParams.page);
 
   return (
     <main
@@ -25,9 +27,7 @@ export default function Home({ searchParams }: {
       <Hero />
       <Popular />
       <Exclusive />
-      <NewCollections
-        page={cleanedPageParam}
-      />
+      <NewCollections page={cleanedPageParam} />
       <NewsLetter />
     </main>
   );
