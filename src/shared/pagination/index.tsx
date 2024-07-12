@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { FC } from "react";
-import TransitionLink from "../transition-link";
 
 type PaginationProps = {
   totalCount: number;
@@ -35,7 +35,7 @@ const Pagination: FC<PaginationProps> = ({
       {Array.from(Array(maxPage).keys()).map((page) => {
         // console.log(currentPage === Number(page + 1));
         return (
-          <TransitionLink
+          <Link
             key={page}
             scroll={false}
             href={mapHref(page)}
@@ -54,7 +54,7 @@ const Pagination: FC<PaginationProps> = ({
             `}
           >
             {page + 1}
-          </TransitionLink>
+          </Link>
         );
       })}
     </div>

@@ -16,6 +16,7 @@ type TransitionLinkProps = LinkProps &
 const TransitionLink: FC<TransitionLinkProps> = ({
   children,
   href,
+  scroll = true,
   ...props
 }) => {
   const router = useRouter();
@@ -30,7 +31,7 @@ const TransitionLink: FC<TransitionLinkProps> = ({
     await sleep(250);
 
     router.push(href, {
-      scroll: false,
+      scroll,
     });
 
     document.body.classList.remove("page-transition");
