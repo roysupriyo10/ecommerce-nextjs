@@ -36,6 +36,7 @@ const Pagination: FC<PaginationProps> = ({
         // console.log(currentPage === Number(page + 1));
         return (
           <TransitionLink
+            key={page}
             scroll={false}
             href={mapHref(page)}
             className={`

@@ -29,9 +29,9 @@ const TransitionLink: FC<TransitionLinkProps> = ({
 
     await sleep(250);
 
-    router.push(href);
-
-    await sleep(250);
+    router.push(href, {
+      scroll: false,
+    });
 
     document.body.classList.remove("page-transition");
   };

@@ -28,14 +28,13 @@
 }
 
 .page-transition {
-  transform: translateY(40px);
-  filter: blur(12px);
+  transform: translateY(2px);
+  filter: blur(2px);
   opacity: 0;
-  background: black;
 }
 
 body {
   transition-property: opacity, background, transform, filter;
   transition-timing-function: ease-in-out;
-  transition-duration: 250ms;
+  transition-duration: 150ms;
 }

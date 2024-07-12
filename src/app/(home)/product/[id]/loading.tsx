@@ -1,7 +1,13 @@
+"use client";
+
 import { ImageSkeleton } from "@/shared";
-import { ProductImages } from "./_components";
+import { useTransition } from "react";
 
 export default function ProductLoading() {
+  const [isPending] = useTransition();
+
+  console.log(isPending);
+
   return (
     <main
       className="

@@ -6,12 +6,5 @@ export default function ProductLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  // return (
-  //   <Suspense
-  //     fallback={<ProductLoading />}
-  //   >
-  //     {children}
-  //   </Suspense>
-  // )
-  return <ProductLoading />;
+  return <Suspense fallback={<ProductLoading />}>{children}</Suspense>;
 }

@@ -1,7 +1,5 @@
 import { HeroImage } from "@/assets";
 import { LinkButton } from "@/components";
-import { ImgRightArrowIcon } from "@/icons";
-import { Button } from "@/shared";
 import Image from "next/image";
 import { FC } from "react";
 
